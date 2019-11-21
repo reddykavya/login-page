@@ -1,0 +1,41 @@
+<div class="container">
+        
+        <div class="row" style="padding-bottom: 20px; float: right;">
+          
+            <button type="button" [routerLink]="['/add']" class="btn btn-primary">Add</button>&nbsp;&nbsp;
+            <button type="button" [routerLink]="['/login']" class="btn btn-danger">Back</button>
+        </div>
+        
+                         
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    
+                    <th>Firstname</th>
+                    <th>Lastname</th>
+                    <th>Email</th>
+                    <th>MobileNumber</th>
+                    <th>Delete</th>
+                    <th>Edit</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of onedata">
+                      <td>{{item.username}}</td>
+                    <td>{{item.lastname}}</td>
+                    <td>{{item.email}}</td>
+                    <td>{{item.mobilenumber}}</td>
+
+                    <td>
+                            <a class="btn text-danger" style="color:rgb(51, 62, 167)" (click)="deletedata(item)">
+                              <i class="fa fa-trash"></i>
+                            </a>
+                          </td>
+                    <td><i class="fa fa-edit" (click)="updatedata(item)" style="color:hotpink"></i></td>
+                    
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            

@@ -1,0 +1,47 @@
+<div class="container" style="background-color: #ebebeb; height: 100vh;">
+    <div class="row">
+        <div class="col-sm-4 col-sm-4 col-xs-12"></div>
+        <div class="col-sm-4 col-sm-4 col-xs-12">
+                <form [formGroup]="loginForm" class="form-container">
+                    
+                <p style="text-align: left;color:rgb(27, 23, 23);">ACCOUNT LOGIN</p>
+                <div class="input-group mb-3">
+                    <label ><i class="fa fa-user" aria-hidden="true"></i>USERNAME</label>
+                    <input type="text"  formControlName="username" class="form-control py-4">
+                </div>
+                <div *ngIf="loginForm.controls['username'].invalid && (loginForm.controls['username'].dirty || loginForm.controls['username'].touched)" class="alert alert-danger">
+                        <div *ngIf="loginForm.controls['username'].errors.required">
+                        Email is required.
+                      </div>
+                    </div>
+                <br>
+
+                <div class="input-group mb-3">
+                    <label> <i class="fa fa-key" aria-hidden="true"></i>PASSWORD</label>
+                    <input [type]="passwordType" formControlName="password" class="form-control py-4">
+                </div>
+                <div *ngIf="loginForm.controls['password'].invalid && (loginForm.controls['password'].dirty || loginForm.controls['password'].touched)" class="alert alert-danger">
+                        <div *ngIf="loginForm.controls['password'].errors.required">
+                                Password is required.
+                      </div>
+                    </div>
+
+
+                <label>
+                    <input type="checkbox" (click)="check()" checked="checked" name="remember"> Remember me
+                </label>
+                <span class="psw" style="float: right;"><a href="#" style="color: black;">Forgot password?</a></span>
+
+                <div class="row">
+                    <button type="button" [disabled]="!loginForm.valid" class="btn btn-success"  style="background-color:black;width:100px;
+                        border-radius: 24px;
+                        margin-left: 13px;" (click)="onSubmit()">login</button>
+                    <button type="button" class="btn btn-success" (click)="register()" style="background-color:black;width:100px;  border-radius: 24px;
+                    float: right;margin-right: 8px;">Register</button>
+
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
